@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Juliana Martins — @medbyjuu | Apresentação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --vinho:#360912;--bordo:#5c1026;--bordo-2:#7d1433;--bordo-soft:#9c2049;
+    --gold:#caa24e;--gold-hi:#f6e6ad;--gold-deep:#9a7322;
+    --grad-gold:linear-gradient(135deg,#f6e6ad 0%,#d8b35c 30%,#a9802c 55%,#f1d585 80%,#caa24e 100%);
+    --bg:#f4eae8;--paper:#fbf3f1;--ink:#2c1117;--muted:#7c5a62;--white:#fff;--line:#e7d2d4;
+    --sh-sm:0 6px 18px rgba(54,9,18,.14);
+    --sh:0 16px 40px rgba(54,9,18,.20);
+    --sh-lg:0 30px 70px rgba(54,9,18,.30);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;}
+  body{font-family:'Archivo',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;}
+  .marble{}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 32px;}
+  @media(max-width:680px){.wrap{padding:0 20px;}}
+  section{padding:74px 0;}
+  @media(max-width:680px){section{padding:52px 0;}}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  .grow{transition:transform .22s ease,box-shadow .22s ease;}
+  .grow:hover{transform:translateY(-4px) scale(1.02);box-shadow:var(--sh-lg);}
+
+  /* moldura dourada metálica nas arestas */
+  .frame{background:var(--grad-gold);padding:3px;border-radius:20px;box-shadow:var(--sh),0 0 0 1px rgba(154,115,34,.4);}
+  .frame>.inner{background:var(--white);border-radius:17px;overflow:hidden;}
+  .gold-line{height:4px;width:100%;background:var(--grad-gold);border-radius:30px;box-shadow:0 1px 4px rgba(154,115,34,.5);}
+
+  .eyebrow{font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);font-weight:800;margin-bottom:14px;}
+  .light .eyebrow{color:var(--gold-hi);}
+
+  h2.big{font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--bordo);
+    font-size:clamp(30px,6vw,58px);line-height:.95;letter-spacing:-1px;}
+  .light h2.big{color:#fff;}
+  p.lead{font-size:16px;color:var(--ink);max-width:640px;margin-top:18px;}
+  .light p.lead{color:#f0dde0;}
+
+  /* CTA */
+  .cta{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:40px;text-decoration:none;
+    background:var(--bordo);color:#fff;font-weight:800;font-size:14px;letter-spacing:.5px;text-transform:uppercase;
+    box-shadow:var(--sh),inset 0 0 0 1px rgba(246,230,173,.35);}
+  .cta:hover{transform:translateY(-3px) scale(1.03);background:var(--bordo-2);box-shadow:var(--sh-lg);}
+  .cta.gold{background:var(--grad-gold);color:var(--vinho);box-shadow:var(--sh),inset 0 1px 0 rgba(255,255,255,.5);}
+  .cta.gold:hover{filter:brightness(1.05);}
+  .cta.ghost{background:transparent;color:var(--bordo);border:2px solid var(--bordo);box-shadow:none;}
+  .cta.ghost:hover{background:var(--bordo);color:#fff;}
+  .cta svg{width:17px;height:17px;fill:currentColor;}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(54,9,18,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(202,162,78,.4);box-shadow:0 4px 20px rgba(54,9,18,.3);}
+  .nav .in{max-width:1000px;margin:0 auto;padding:13px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .nav .brand{font-family:'Archivo Black',sans-serif;font-size:17px;text-transform:lowercase;letter-spacing:-.5px;
+    background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .nav a.mini{text-decoration:none;font-size:12.5px;font-weight:800;color:var(--vinho);background:var(--grad-gold);
+    padding:9px 17px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+  .nav a.mini:hover{filter:brightness(1.06);}
+  @media(max-width:680px){.nav .in{padding:11px 20px;}}
+
+  /* HERO */
+  .hero{padding:56px 0 34px;}
+  .hero + section{padding-top:30px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  @media(max-width:780px){.hero-grid{grid-template-columns:1fr;gap:30px;}}
+  .hero h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--bordo);
+    font-size:clamp(34px,6.4vw,62px);line-height:.94;letter-spacing:-1.5px;}
+  .hero h1 .gd{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 2px 10px rgba(154,115,34,.25);}
+  .hero h1 .age{font-size:clamp(14px,2vw,20px);letter-spacing:0;vertical-align:middle;color:var(--bordo);}
+  .hero p.sub{font-size:16.5px;color:var(--ink);margin-top:22px;max-width:470px;}
+  .hero p.sub .tag{display:inline-block;margin-top:8px;font-weight:700;color:var(--bordo-2);}
+  .hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+  .hero .photo-wrap{position:relative;}
+  .hero .photo img{width:100%;display:block;object-fit:cover;object-position:50% 16%;aspect-ratio:4/5;}
+  .venn{position:absolute;top:-20px;left:-20px;z-index:2;filter:drop-shadow(0 6px 12px rgba(54,9,18,.4));}
+  .venn circle{fill:none;stroke:url(#gg);stroke-width:6;}
+
+  /* divisor fino (faixa de cor) */
+  .band-divider{height:10px;background:var(--bordo);border-top:2px solid;border-bottom:2px solid;
+    border-image:var(--grad-gold) 1;box-shadow:inset 0 2px 8px rgba(0,0,0,.3),0 4px 14px rgba(54,9,18,.25);}
+  /* strip números */
+  .strip{background:var(--bordo);color:#fff;box-shadow:inset 0 6px 24px rgba(0,0,0,.25);border-top:3px solid;border-image:var(--grad-gold) 1;border-bottom:3px solid;}
+  .strip .in{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1000px;margin:0 auto;padding:38px 32px;}
+  @media(max-width:680px){.strip .in{grid-template-columns:1fr 1fr;gap:26px 16px;padding:32px 20px;}}
+  .strip .s .k{font-family:'Archivo Black',sans-serif;font-size:34px;line-height:1;
+    background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .strip .s .t{font-size:12px;color:#f0dde0;margin-top:7px;}
+
+  p.lead .hl{color:var(--bordo);font-weight:700;}
+  .light p.lead .hl{color:var(--gold-hi);}
+
+  /* público tags */
+  .niches{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px;}
+  .niche{font-size:13px;font-weight:700;color:var(--bordo);background:#fff;border:1px solid var(--gold);
+    border-radius:30px;padding:9px 16px;box-shadow:var(--sh-sm);transition:transform .2s ease;}
+  .niche:hover{transform:scale(1.06);}
+
+  /* qualificações */
+  .quals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px;}
+  @media(max-width:780px){.quals{grid-template-columns:1fr;}}
+  .qual{background:var(--white);border-radius:18px;padding:26px 22px;box-shadow:var(--sh);position:relative;overflow:hidden;}
+  .qual .gold-line{position:absolute;top:0;left:0;border-radius:0;}
+  .qual .ic{width:48px;height:48px;border-radius:13px;background:var(--grad-gold);display:flex;align-items:center;justify-content:center;
+    margin:8px 0 14px;box-shadow:var(--sh-sm),inset 0 1px 0 rgba(255,255,255,.5);}
+  .qual .ic svg{width:23px;height:23px;fill:var(--vinho);}
+  .qual h3{font-size:17px;font-weight:800;margin-bottom:6px;color:var(--bordo);}
+  .qual p{font-size:13.5px;color:var(--muted);line-height:1.55;}
+
+  /* conexão / prints */
+  .prints{column-count:3;column-gap:16px;margin-top:30px;}
+  @media(max-width:780px){.prints{column-count:2;}}
+  @media(max-width:480px){.prints{column-count:1;}}
+  .print{break-inside:avoid;margin-bottom:16px;background:var(--grad-gold);padding:3px;border-radius:16px;
+    box-shadow:var(--sh);transition:transform .22s ease,box-shadow .22s ease;}
+  .print:hover{transform:translateY(-4px) scale(1.02);box-shadow:var(--sh-lg);}
+  .print img{display:block;width:100%;border-radius:13px;}
+
+  /* resumos disponíveis */
+  .resumos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;}
+  @media(max-width:680px){.resumos{grid-template-columns:1fr;}}
+  .resumo{display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:20px 22px;
+    text-decoration:none;color:var(--ink);box-shadow:var(--sh);border:1px solid var(--line);transition:transform .22s ease,box-shadow .22s ease;}
+  .resumo:hover{transform:translateY(-4px) scale(1.02);box-shadow:var(--sh-lg);}
+  .resumo .rico{flex:0 0 50px;width:50px;height:50px;border-radius:14px;background:var(--grad-gold);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm),inset 0 1px 0 rgba(255,255,255,.5);}
+  .resumo .rico svg{width:24px;height:24px;fill:var(--vinho);}
+  .resumo .rt b{display:block;font-size:15.5px;font-weight:800;color:var(--bordo);}
+  .resumo .rt span{font-size:12.5px;color:var(--muted);}
+  .resumo .arr{margin-left:auto;color:var(--gold-deep);font-size:22px;}
+
+  /* depoimentos */
+  .deps{column-count:3;column-gap:16px;margin-top:28px;}
+  @media(max-width:780px){.deps{column-count:2;}}
+  @media(max-width:480px){.deps{column-count:1;}}
+  .dep{break-inside:avoid;background:#fff;border-radius:16px;padding:20px;box-shadow:var(--sh);margin-bottom:16px;}
+  .dep .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    color:var(--vinho);background:var(--grad-gold);border-radius:20px;padding:3px 11px;box-shadow:var(--sh-sm);}
+  .dep p{font-size:13.5px;color:var(--ink);line-height:1.6;margin:12px 0 14px;font-style:italic;}
+  .dep .who{display:flex;align-items:center;gap:10px;}
+  .dep .dot{flex:0 0 32px;width:32px;height:32px;border-radius:50%;background:var(--grad-gold);color:var(--vinho);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;box-shadow:var(--sh-sm);}
+  .dep .nm{font-weight:800;font-size:13px;color:var(--bordo);display:block;}
+  .dep .meta{font-size:11.5px;color:var(--muted);}
+
+  /* CTA final */
+  .final{background:linear-gradient(160deg,var(--vinho),var(--bordo) 60%,var(--bordo-2));color:#fff;
+    border-top:3px solid;border-image:var(--grad-gold) 1;}
+  .final-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;}
+  @media(max-width:780px){.final-grid{grid-template-columns:1fr;gap:28px;text-align:center;}}
+  .final h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(32px,6.4vw,62px);line-height:.92;letter-spacing:-1px;}
+  .final .sub{font-family:'Fraunces',serif;font-size:clamp(20px,3.4vw,28px);color:var(--gold-hi);margin-top:16px;}
+  .final .cta{margin-top:26px;}
+  .final .ct-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+  @media(max-width:780px){.final .ct-row{justify-content:center;}}
+  .final .ct{display:inline-flex;align-items:center;gap:9px;color:#fff;text-decoration:none;font-size:13px;font-weight:600;
+    border:1px solid rgba(246,230,173,.5);border-radius:30px;padding:10px 16px;transition:transform .2s ease,background .2s ease;}
+  .final .ct:hover{background:rgba(246,230,173,.14);transform:scale(1.04);}
+  .final .ct svg{width:16px;height:16px;fill:var(--gold-hi);}
+  .final .photo img{width:100%;display:block;object-fit:cover;aspect-ratio:4/5;}
+
+  .foot{padding:26px 0;text-align:center;font-size:11.5px;color:var(--muted);}
+  .foot .gl{width:60px;height:3px;background:var(--grad-gold);margin:0 auto 14px;border-radius:30px;}
+</style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e6ad"/><stop offset=".5" stop-color="#caa24e"/><stop offset="1" stop-color="#9a7322"/></linearGradient></defs></svg>
+
+  <nav class="nav">
+    <div class="in">
+      <span class="brand">@medbyjuu</span>
+      <a href="#contato" class="mini">Falar comigo</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero marble">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1><em>Juliana</em> <span class="age">26 anos</span></h1>
+          <p class="sub">Documento minha trajetória acadêmica e profissional enquanto busco uma vaga de residência.
+            <span class="tag">🏷️ MEDBYJU · @grupomedcof</span></p>
+          <div class="btns">
+            <a href="#contato" class="cta">Vamos conversar
+              <svg viewBox="0 0 24 24"><path d="M4 11h12.2l-5.6-5.6L12 4l8 8-8 8-1.4-1.4 5.6-5.6H4z"/></svg></a>
+            <a href="#qualificacoes" class="cta ghost">Minhas qualificações</a>
+          </div>
+        </div>
+        <div class="photo-wrap">
+          <div class="frame grow"><div class="inner photo"><img src="foto-hero.jpeg" alt="Juliana Martins"></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUEM SOU -->
+  <section>
+    <div class="wrap reveal">
+      <div class="eyebrow">Quem sou</div>
+      <h2 class="big">A medbyju</h2>
+      <p class="lead">Criei meu Instagram do zero em 2021, sem pretensão de fazer disso um trabalho integral. Comecei postando minha rotina na faculdade — dicas de estudo, treinos, alimentação — e me tornei praticamente a única blogueira de medicina da faculdade particular mais antiga de Belém.</p>
+      <p class="lead">Com espontaneidade e constância, conquistei espaço, respeito e a confiança de quem me acompanha. Trabalho com verdade e transparência, sempre acessível ao meu público — é isso que transforma audiência em conexão real.</p>
+    </div>
+  </section>
+
+  <!-- PÚBLICO -->
+  <section style="background:var(--paper);">
+    <div class="wrap reveal">
+      <div class="eyebrow">Meu público</div>
+      <h2 class="big">Quem me acompanha</h2>
+      <p class="lead">Uma audiência majoritariamente feminina, entre 24 e 34 anos, de Belém e região metropolitana. Seguidores com forte conexão pelos stories; novos visitantes chegando pelos Reels.</p>
+      <div class="niches">
+        <span class="niche grow">estudantes de medicina</span>
+        <span class="niche grow">internas e internos</span>
+        <span class="niche grow">profissionais da saúde</span>
+        <span class="niche grow">marcas de educação médica</span>
+        <span class="niche grow">produtos médicos</span>
+        <span class="niche grow">lifestyle & rotina</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIFICAÇÕES -->
+  <section id="qualificacoes">
+    <div class="wrap reveal">
+      <div class="eyebrow">Qualificações</div>
+      <h2 class="big">O que me<br>diferencia</h2>
+      <div class="quals">
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2V17c0 1.7 3.1 3 7 3s7-1.3 7-3v-3.8l-7 3.8z"/></svg></div>
+          <h3>Formação médica</h3><p>Interna de medicina no Centro Universitário do Estado do Pará (CESUPA), 10º período.</p>
+        </div>
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 3.65A6.15 6.15 0 1 0 18.15 12 6.15 6.15 0 0 0 12 5.85zm0 10.15A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg></div>
+          <h3>Criadora de conteúdo</h3><p>5 anos produzindo conteúdo autêntico e constante para o nicho de medicina.</p>
+        </div>
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5z"/></svg></div>
+          <h3>Embaixadora MedCof</h3><p>Representando o Grupo MedCof em educação médica, com resultados reais de conexão.</p>
+        </div>
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.7 0-8 1.3-8 4v3h8v-3c0-1 .4-2.5 1.7-3.6A13 13 0 0 0 8 13zm8 0c-.6 0-1.3.1-2 .2C17.3 14.3 18 16 18 17v3h6v-3c0-2.7-5.3-4-8-4z"/></svg></div>
+          <h3>Audiência engajada</h3><p>Mais de 150 mil visitas e relação de confiança que fideliza seguidores.</p>
+        </div>
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13h2v8H3zm4-6h2v14H7zm4 3h2v11h-2zm4-7h2v18h-2zm4 4h2v14h-2z"/></svg></div>
+          <h3>Crescimento real</h3><p>Histórico de gerar engajamento, indicações e novos usuários para marcas parceiras.</p>
+        </div>
+        <div class="qual grow"><div class="gold-line"></div>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg></div>
+          <h3>Relações duradouras</h3><p>Trabalho com marcas alinhadas ao meu propósito, em parcerias de longo prazo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONEXÃO (prints reais) -->
+  <section style="background:var(--paper);">
+    <div class="wrap reveal">
+      <div class="eyebrow">Conexão</div>
+      <h2 class="big">Uma imagem fala<br>mais que mil palavras</h2>
+      <p class="lead">Alguns dos feedbacks reais que recebo de quem me acompanha no dia a dia:</p>
+      <div class="prints">
+        <div class="print"><img src="img-feedback/X10.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X13.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X11.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X12.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X16.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X14.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X17.jpg" alt="Feedback"></div>
+        <div class="print"><img src="img-feedback/X15.jpg" alt="Feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEUS RESUMOS DISPONÍVEIS -->
+  <section id="resumos">
+    <div class="wrap reveal">
+      <div class="eyebrow">Material</div>
+      <h2 class="big">Meus resumos<br>disponíveis</h2>
+      <p class="lead">Acesse os resumos que produzo para os estudos de medicina:</p>
+      <div class="resumos">
+        <a href="https://tough-green-546.notion.site/Otorrinolaringologia-1fc8a3b140d180e0b67bc90cb0fb41e8" target="_blank" rel="noopener" class="resumo"><span class="rico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5z"/></svg></span><span class="rt"><b>Otorrinolaringologia</b><span>Resumo introdutório</span></span><span class="arr">›</span></a>
+        <a href="https://tough-green-546.notion.site/Bases-Bioqu-micas-e-Terap-uticas-f89eb38181a74047a0e808a64179f416" target="_blank" rel="noopener" class="resumo"><span class="rico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5z"/></svg></span><span class="rt"><b>Bases Bioquímicas e Terapêuticas</b><span>Resumo completo</span></span><span class="arr">›</span></a>
+        <a href="https://tough-green-546.notion.site/Neurologia-1f28a3b140d180c1b105e0d81c3e837a" target="_blank" rel="noopener" class="resumo"><span class="rico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5z"/></svg></span><span class="rt"><b>Neurologia</b><span>Resumo completo</span></span><span class="arr">›</span></a>
+        <a href="https://tough-green-546.notion.site/PEDIATRIA-16c8a3b140d1808aae78fd16945b378c" target="_blank" rel="noopener" class="resumo"><span class="rico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1.5V8h4.5z"/></svg></span><span class="rt"><b>Pediatria</b><span>Resumo completo</span></span><span class="arr">›</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS DE ALUNOS -->
+  <section style="background:var(--paper);">
+    <div class="wrap reveal">
+      <div class="eyebrow">Depoimentos de alunos</div>
+      <h2 class="big">O que dizem</h2>
+      <div class="deps">
+        <div class="dep"><span class="badge">UFPa</span><p>“Assinei o Medcof no 9º período e me ajudou a conciliar o internato com os estudos para residência. As fichas-resumo e o Cof Express foram as melhores coisas já inventadas — entendia o conteúdo de forma rápida e tirava dúvidas com os professores. Sem dúvidas se destaca em relação aos outros cursinhos!”</p><div class="who"><span class="dot">E</span><span><span class="nm">Evelyn</span><span class="meta">10º período · UFPa</span></span></div></div>
+
+        <div class="dep"><span class="badge">UFPa</span><p>“Gosto muito da plataforma, principalmente pela organização dos módulos e por poder escolher entre aulas completas e os CofExpress. Preferi o Medcof pela flexibilidade de acesso — no internato organizo a semana conforme meu rodízio. E o suporte é incrível, super rápido!”</p><div class="who"><span class="dot">T</span><span><span class="nm">Thainá Fernandez</span><span class="meta">10º período · UFPa</span></span></div></div>
+
+        <div class="dep"><span class="badge">CESUPA</span><p>“Assinei no 8º semestre e tem sido ideal: me acompanha nos ambulatórios, nas provas da faculdade e na preparação para a residência, sem deixar lacunas. Plataforma fácil de usar e muito organizada 🥰”</p><div class="who"><span class="dot">J</span><span><span class="nm">Júlia Rocha</span><span class="meta">Pré-internato · CESUPA</span></span></div></div>
+
+        <div class="dep"><span class="badge">CESUPA</span><p>“A plataforma organiza minha semana e traz questões para a residência e para o raciocínio clínico nos rodízios. Preferi pela personalização da carga horária, questões comentadas e aulas curtas para o que já domino — perfeito para a correria do internato.”</p><div class="who"><span class="dot">J</span><span><span class="nm">João Linhares</span><span class="meta">9º período · CESUPA</span></span></div></div>
+
+        <div class="dep"><span class="badge">C
